@@ -3,10 +3,10 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import CardWidget from "../CardWidget/CardWidget";
 
 //los componentes se llaman Upper CammelCase
 const NavBar = () => {
-  
   return (
     <AppBar position='static'>
       <Toolbar style={{ backgroundColor: "#3949ab" }}>
@@ -16,6 +16,7 @@ const NavBar = () => {
         <Button color='inherit'>Home</Button>
         <Button color='inherit'>PortFolio</Button>
         <Button color='inherit'>Contact</Button>
+        <CardWidget />
       </Toolbar>
     </AppBar>
   );

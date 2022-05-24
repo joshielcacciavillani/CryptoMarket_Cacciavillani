@@ -12,13 +12,13 @@ function App() {
       <Container>
         <Grid container className='general-container'>
           <Grid item xs={4}>
-            <CardItem title={"Bitcoin"} price={29000} image={"crypto1.jpeg"} />
+            <CardItem title={"Bitcoin"} price={29000} imagen={"crypto1.jpeg"} />
           </Grid>
           <Grid item xs={4}>
-            <CardItem title={"Ethereum"} price={3000} image={"crypto2.jpeg"} />
+            <CardItem title={"Ethereum"} price={3000} imagen={"crypto2.jpeg"} />
           </Grid>
           <Grid item xs={4}>
-            <CardItem title={"Cardano"} price={25} image={"crypto3.jpeg"} />
+            <CardItem title={"Cardano"} price={25} imagen={"crypto3.jpeg"} />
           </Grid>
         </Grid>
       </Container>
