@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 
 //los componentes se llaman Upper CammelCase
 const NavBar = () => {
+  
   return (
     <AppBar position='static'>
       <Toolbar style={{ backgroundColor: "#3949ab" }}>

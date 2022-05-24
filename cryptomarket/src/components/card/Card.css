@@ -1,0 +1,32 @@
+.card-item img {
+  width: 75%;
+  border-radius: 20px;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-item p {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 2px;
+}
+
+.card-item span {
+  margin-bottom: 15px;
+  font-size: 20px;
+  margin: 2px;
+}
+
+.card-item span {
+  margin-bottom: 15px;
+  margin: 22px;
+}
+
+.card-item button {
+  border-radius: 20px;
+
+  background-color: cadetblue;
+}
