@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 
 //Funcationl Component
-const CardWidget = () => {
+const CartWidget = () => {
   return (
     <div>
       <Button color='inherit'>
@@ -14,4 +14,4 @@ const CardWidget = () => {
   );
 };
 
-export default CardWidget;
+export default CartWidget;
