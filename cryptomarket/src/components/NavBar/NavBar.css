@@ -1,5 +1,27 @@
-.navBar {
+.navbar {
+  float: left;
+  width: 100%;
+  display: flex;
+}
+.container-logo {
+  width: 100px;
+}
+.container-logo img {
+  width: 75%;
+}
+
+.header-primary .navbar li {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin-right: 10px;
+}
+.header-primary .navbar .navbar__btn {
+  font-family: "Roboto Mono", monospace;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+}
+
+.MuiToolbar-root {
+  background-color: #184e77;
 }

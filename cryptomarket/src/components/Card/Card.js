@@ -1,11 +1,12 @@
 import "./Card.css";
+import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Button } from "@mui/material";
-import { useState } from "react";
+import Modal from "../Modal/Modal";
 
-//Funcationl Component
-const CardItem = ({ imagen, title, price, stock }) => {
+//Functional Component
+const CardItem = ({ image, title, price, stock }) => {
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(1);
 
@@ -19,7 +20,7 @@ const CardItem = ({ imagen, title, price, stock }) => {
     }
   };
   const removeCount = () => {
-    if (count > 0) {
+    if (count > 1) {
       setCount(count - 1);
     }
   };
@@ -29,7 +30,7 @@ const CardItem = ({ imagen, title, price, stock }) => {
       <CardContent>
         <div className='card-item'>
           <div className='card-item__img-box'>
-            <img src={`./${imagen}`} alt={"producto"} />
+            <img src={`./${image}`} alt={"producto"} />
             <Button variant={"contained"} className='card-btn-details'>
               Ver Detalle
             </Button>
@@ -39,17 +40,23 @@ const CardItem = ({ imagen, title, price, stock }) => {
               <p>{title}</p>
               <span>$ {price}</span>
             </div>
-            <div className='color-group-selector'>
-              <button className='color-selector black'></button>
-              <button className='color-selector green'></button>
-              <button className='color-selector red'></button>
+            <div className='count-item'>
+              <Button onClick={removeCount}>-</Button>
+              <p>{count}</p>
+              <Button onClick={addCount}>+</Button>
             </div>
             <Button variant={"contained"} className='card-item-button'>
-              Agregar al carrito
+              Comprar
             </Button>
           </div>
         </div>
       </CardContent>
+      {open && (
+        <Modal handleClose={handleClose} open={open}>
+          <h2>Detalle</h2>
+          <img src={`./${image}`} alt={"producto"} />
+        </Modal>
+      )}
     </Card>
   );
 };

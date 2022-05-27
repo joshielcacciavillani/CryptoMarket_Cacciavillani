@@ -1,22 +1,59 @@
 import "./NavBar.css";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import CardWidget from "../CartWidget/CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
 
-//los componentes se llaman Upper CammelCase
 const NavBar = () => {
   return (
-    <AppBar position='static'>
-      <Toolbar style={{ backgroundColor: "#3949ab" }}>
-        <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-          CryptoMarket
-        </Typography>
-        <Button color='inherit'>Home</Button>
-        <Button color='inherit'>PortFolio</Button>
-        <Button color='inherit'>Contact</Button>
-        <CardWidget />
+    <AppBar position='static' className='header-primary'>
+      <Toolbar>
+        <div className='container-logo'>
+          <img src='./logo2.gif' />
+        </div>
+        <ul className='navbar'>
+          <li>
+            <Button
+              disableRipple
+              style={{ backgroundColor: "transparent" }}
+              variant='text'
+              className='navbar__btn'
+            >
+              Inicio
+            </Button>
+          </li>
+          <li>
+            <Button
+              disableRipple
+              style={{ backgroundColor: "transparent" }}
+              variant='text'
+              className='navbar__btn'
+            >
+              Productos
+            </Button>
+          </li>
+          <li>
+            <Button
+              disableRipple
+              style={{ backgroundColor: "transparent" }}
+              variant='text'
+              className='navbar__btn'
+            >
+              Preguntas Frecuentes
+            </Button>
+          </li>
+          <li>
+            <Button
+              disableRipple
+              style={{ backgroundColor: "transparent" }}
+              variant='text'
+              className='navbar__btn'
+            >
+              Contacto
+            </Button>
+          </li>
+        </ul>
+        <CartWidget />
       </Toolbar>
     </AppBar>
   );

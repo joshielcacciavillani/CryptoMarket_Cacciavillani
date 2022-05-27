@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 .App {
   text-align: center;
 }
@@ -5,6 +6,23 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+a,
+button,
+input {
+  font-family: "Roboto Mono", monospace;
+}
+
+.general-container {
+  width: 1300px;
+  margin: 0 auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -23,9 +41,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.cart-container-icon > svg {
+  color: black;
+}
 .App-link {
-  color: #61dafb;
+  background-color: #14213d;
 }
 
 @keyframes App-logo-spin {
@@ -37,7 +57,3 @@
   }
 }
 
-.general-container > div {
-  margin: 10px;
-  border-radius: 20px;
-}

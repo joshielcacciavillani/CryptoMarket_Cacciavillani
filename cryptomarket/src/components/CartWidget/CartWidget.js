@@ -1,15 +1,9 @@
-// import "./CardWidget.css";
-import { Button } from "@mui/material";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-//Funcationl Component
 const CartWidget = () => {
   return (
-    <div>
-      <Button color='inherit'>
-        {"Comprar "}
-        <ShoppingCartRoundedIcon />
-      </Button>
+    <div className='cart-container-icon'>
+      <ShoppingCartIcon color={"primary"} />
     </div>
   );
 };
