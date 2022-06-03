@@ -1,25 +1,24 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
-import CardList from "./components/CardList/CardList";
-// import ItemListContainer from "./components/ItemListConstainer/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-// import SnackBar from "./components/SnackBar/SnackBar";
-// import Modal from "./components/Modal/Modal";
+import Home from "./pages/Home";
+import Contacto from "./pages/Contacto";
+import NotFound from "./pages/NotFound";
+import Detalle from "./pages/Detalle";
 
 function App() {
-  // const [open, setOpen] = useState(false);
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
-
   return (
     //JSX
     <div className='App'>
       <NavBar />
-      <div className='general-container'>
-        <CardList title={"Productos Recomendados"} />
-      </div>
-      <ItemDetailContainer />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/contact' element={<Contacto />} />
+          <Route path='/product/:id' element={<Detalle />} />
+          <Route path='/' element={<Home />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { producto } from "../../Utils/productsMocks";
 import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 const ItemDetailContainer = () => {
   const [product, setProducts] = useState({});

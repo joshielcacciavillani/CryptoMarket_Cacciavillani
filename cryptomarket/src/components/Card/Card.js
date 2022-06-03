@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Button } from "@mui/material";
 import Modal from "../Modal/Modal";
+import { Link } from "react-router-dom";
 
 //Functional Component
 const CardItem = ({ image, title, price, stock }) => {
