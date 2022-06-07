@@ -5,16 +5,19 @@ import Home from "./pages/Home";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
 import Detalle from "./pages/Detalle";
+import ProductList from "./pages/ProductList";
 
 function App() {
   return (
     //JSX
     <div className='App'>
-      <NavBar />
       <BrowserRouter>
+        <NavBar />
+
         <Routes>
           <Route path='/contact' element={<Contacto />} />
           <Route path='/product/:id' element={<Detalle />} />
+          <Route path='/products/:category' element={<ProductList />} />
           <Route path='/' element={<Home />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
