@@ -4,6 +4,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import CartWidget from "../CartWidget/CartWidget";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -14,6 +17,8 @@ const NavBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const categories = ["Bitcoin", "Blockchain networks", "Smart Contract Platform", "Stablecoins"];
 
   return (
     <AppBar position='static' className='header-primary'>
@@ -29,11 +34,16 @@ const NavBar = () => {
               variant='text'
               className='navbar__btn'
             >
-              Inicio
+              <Link to='/'>Inicio</Link>
             </Button>
           </li>
           <li>
             <Button
+              id='basic-button'
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup='true'
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
               disableRipple
               style={{ backgroundColor: "transparent" }}
               variant='text'
@@ -41,6 +51,23 @@ const NavBar = () => {
             >
               Productos
             </Button>
+            <Menu
+              id='basic-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              {categories.map((cat) => {
+                return (
+                  <MenuItem onClick={handleClose}>
+                    <Link to={`/products/${cat}`}>{cat}</Link>
+                  </MenuItem>
+                );
+              })}
+            </Menu>
           </li>
           <li>
             <Button
@@ -59,7 +86,7 @@ const NavBar = () => {
               variant='text'
               className='navbar__btn'
             >
-              Contacto
+              <Link to='/contact'>Contacto</Link>
             </Button>
           </li>
         </ul>

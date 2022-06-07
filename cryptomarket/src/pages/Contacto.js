@@ -1,4 +1,4 @@
 const Contacto = () => {
-  return <div>PAGINA CONTACTO</div>;
+  return <div>Esto es el contacto de la pagina</div>;
 };
 export default Contacto;

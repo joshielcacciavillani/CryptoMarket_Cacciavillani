@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CardItem from "../Card/Card";
 import { Grid } from "@mui/material";
-import productos from "../../Utils/productsMocks";
+import productos from "../../Utils/productsMock";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
