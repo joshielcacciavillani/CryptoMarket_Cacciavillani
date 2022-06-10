@@ -2,7 +2,7 @@ const productos = [
   {
     title: "Bitcoin",
     price: 1500,
-    image: "crypto1.jpeg",
+    image: "/crypto1.jpeg",
     category: "Bitcoin",
     description: "",
     stock: 3,
@@ -11,7 +11,7 @@ const productos = [
   {
     title: "Ethereum",
     price: 3500,
-    image: "crypto2.jpeg",
+    image: "/crypto2.jpeg",
     category: "Blockchain networks",
     description: "",
     stock: 5,
@@ -20,7 +20,7 @@ const productos = [
   {
     title: "Cardano",
     price: 2000,
-    image: "crypto3.jpeg",
+    image: "/crypto3.jpeg",
     category: "Smart Contract Platform",
     description: "",
     stock: 10,
@@ -29,7 +29,7 @@ const productos = [
   {
     title: "USDT",
     price: 1,
-    image: "crypto3.jpeg",
+    image: "/crypto3.jpeg",
     category: "Stablecoins",
     description: "",
     stock: 10,

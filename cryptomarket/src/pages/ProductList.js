@@ -7,15 +7,6 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const { category } = useParams();
 
-  useEffect(() => {
-    setProducts([]);
-    //console.log("category: ", category);
-    getProducts().then((response) => {
-      //setProducts(response)
-      filterByCategory(response);
-    });
-  }, [category]);
-
   const getProducts = () => {
     return new Promise((resolve, reject) => {
       // setTimeout(() => {
@@ -24,13 +15,16 @@ const ProductList = () => {
     });
   };
 
-  const filterByCategory = (array) => {
-    return array.map((item) => {
-      if (item.category == category) {
-        return setProducts((products) => [...products, item]);
-      }
+  useEffect(() => {
+    setProducts([]);
+    //console.log("category: ", category);
+    getProducts()
+      .then((response) => {
+       setProducts( category ? response.filter(product => product.category === category) : response )
+
     });
-  };
+  }, [category]);
+
 
   return (
     <div className='general-container'>

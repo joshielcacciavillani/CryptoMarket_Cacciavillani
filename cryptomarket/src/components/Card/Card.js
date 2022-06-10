@@ -7,19 +7,21 @@ import Modal from "../Modal/Modal";
 import { Link } from "react-router-dom";
 
 //Functional Component
-const CardItem = ({ image, title, price, stock }) => {
+const CardItem = ({ image, title, price, stock, id }) => {
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(1);
-
+  
   const handleClose = () => {
     setOpen(false);
   };
+  
   const addCount = () => {
     console.log("stock: ", stock);
     if (count < stock) {
       setCount(count + 1);
     }
   };
+  
   const removeCount = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -31,7 +33,7 @@ const CardItem = ({ image, title, price, stock }) => {
       <CardContent>
         <div className='card-item'>
           <div className='card-item__img-box'>
-            <img src={`./${image}`} alt={"producto"} />
+            <img src={`${image}`} alt={"producto"} />
             <Button variant={"contained"} className='card-btn-details'>
               Ver Detalle
             </Button>
@@ -46,16 +48,18 @@ const CardItem = ({ image, title, price, stock }) => {
               <p>{count}</p>
               <Button onClick={addCount}>+</Button>
             </div>
+            <Link to={`/product/${id}`}>
             <Button variant={"contained"} className='card-item-button'>
-              Comprar
+              Detalle
             </Button>
+            </Link>
           </div>
         </div>
       </CardContent>
       {open && (
         <Modal handleClose={handleClose} open={open}>
-          <h2>Detalle</h2>
-          <img src={`./${image}`} alt={"producto"} />
+            <h2>Detalle</h2>
+            <img src={`./${image}`} alt={"producto"} />
         </Modal>
       )}
     </Card>
