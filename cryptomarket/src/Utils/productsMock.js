@@ -33,7 +33,7 @@ const productos = [
     category: "Stablecoins",
     description: "",
     stock: 10,
-    id: 3,
+    id: 4,
   },
 ];
 

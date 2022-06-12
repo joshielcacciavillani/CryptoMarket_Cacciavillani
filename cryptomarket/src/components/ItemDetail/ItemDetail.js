@@ -6,7 +6,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 const ItemDetail = ({ data }) => {
   const [size, setSize] = useState("");
 
-  const [showButton, setShowButton] = useState(false);
+  // const [showButton, setShowButton] = useState(false);
 
   const handleChange = (event) => {
     setSize(event.target.value);
@@ -29,11 +29,12 @@ const ItemDetail = ({ data }) => {
         </div>
         <p>{data.price}</p>
         <span>Plan de suscripcion a Cant de Meses: {data.price / 3}</span>
-        <div className='color-group-selector'>
+        {/* <div className='color-group-selector'>
           <button className='color-selector black'></button>
           <button className='color-selector green'></button>
           <button className='color-selector red'></button>
-        </div>
+        </div> */}
+        <br />
 
         <label>Selecciona tu Plan de Suscripcion</label>
         <Select
@@ -44,8 +45,8 @@ const ItemDetail = ({ data }) => {
           placeholder='Selecciona tu Plan de suscripcion'
           onChange={handleChange}
         >
-          <MenuItem value={"1"}>1</MenuItem>
-          <MenuItem value={"3"}>3</MenuItem>
+          <MenuItem value={"1"}> 1</MenuItem>
+          <MenuItem value={"3"}> 3</MenuItem>
           <MenuItem value={"12"}>12</MenuItem>
         </Select>
 

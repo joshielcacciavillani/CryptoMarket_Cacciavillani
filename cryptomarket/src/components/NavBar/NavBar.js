@@ -24,7 +24,9 @@ const NavBar = () => {
     <AppBar position='static' className='header-primary'>
       <Toolbar>
         <div className='container-logo'>
-          <img src='./logo2.gif' alt='logo' />
+          <Link to='/'>
+            <img src='./logo2.gif' alt='logo' />
+          </Link>
         </div>
         <ul className='navbar'>
           <li>
@@ -40,12 +42,12 @@ const NavBar = () => {
           <li>
             <Button
               id='basic-button'
-              aria-controls={open ? "basic-menu" : undefined}
-              aria-haspopup='true'
-              aria-expanded={open ? "true" : undefined}
+              // aria-controls={open ? "basic-menu" : undefined}
+              // aria-haspopup='true'
+              // aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
               disableRipple
-              style={{ backgroundColor: "transparent" }}
+              // style={{ backgroundColor: "transparent" }}
               variant='text'
               className='navbar__btn'
             >

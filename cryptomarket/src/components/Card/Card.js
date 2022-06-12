@@ -10,18 +10,18 @@ import { Link } from "react-router-dom";
 const CardItem = ({ image, title, price, stock, id }) => {
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(1);
-  
+
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   const addCount = () => {
-    console.log("stock: ", stock);
+    // console.log("stock: ", stock);
     if (count < stock) {
       setCount(count + 1);
     }
   };
-  
+
   const removeCount = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -35,7 +35,7 @@ const CardItem = ({ image, title, price, stock, id }) => {
           <div className='card-item__img-box'>
             <img src={`${image}`} alt={"producto"} />
             <Button variant={"contained"} className='card-btn-details'>
-              Ver Detalle
+              <Link to={`/product/${id}`}>Ver Detalle</Link>
             </Button>
           </div>
           <div className='card-item__data-box'>
@@ -49,17 +49,17 @@ const CardItem = ({ image, title, price, stock, id }) => {
               <Button onClick={addCount}>+</Button>
             </div>
             <Link to={`/product/${id}`}>
-            <Button variant={"contained"} className='card-item-button'>
-              Detalle
-            </Button>
+              <Button variant={"contained"} className='card-item-button'>
+                Detalle
+              </Button>
             </Link>
           </div>
         </div>
       </CardContent>
       {open && (
         <Modal handleClose={handleClose} open={open}>
-            <h2>Detalle</h2>
-            <img src={`./${image}`} alt={"producto"} />
+          <h2>Detalle</h2>
+          <img src={`./${image}`} alt={"producto"} />
         </Modal>
       )}
     </Card>
