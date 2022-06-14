@@ -18,6 +18,13 @@ const NavBar = () => {
     setAnchorEl(null);
   };
 
+  // const categories = [
+  //   { name: "bitcoin", category: "Bitcoin" },
+  //   { name: "lockchainnetworks", category: "Blockchain networks" },
+  //   { name: "smartcontractplatform", category: "Smart Contract Platform" },
+  //   { name: "stablecoins", category: "Stablecoins" },
+  // ];
+
   const categories = ["Bitcoin", "Blockchain networks", "Smart Contract Platform", "Stablecoins"];
 
   return (

@@ -5,27 +5,14 @@ import CardContent from "@mui/material/CardContent";
 import { Button } from "@mui/material";
 import Modal from "../Modal/Modal";
 import { Link } from "react-router-dom";
+import ItemCount from "../../Utils/ItemCount";
 
 //Functional Component
-const CardItem = ({ image, title, price, stock, id }) => {
+const CardItem = ({ image, title, price, id, stock }) => {
   const [open, setOpen] = useState(false);
-  const [count, setCount] = useState(1);
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const addCount = () => {
-    // console.log("stock: ", stock);
-    if (count < stock) {
-      setCount(count + 1);
-    }
-  };
-
-  const removeCount = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
   };
 
   return (
@@ -43,11 +30,7 @@ const CardItem = ({ image, title, price, stock, id }) => {
               <p>{title}</p>
               <span>$ {price}</span>
             </div>
-            <div className='count-item'>
-              <Button onClick={removeCount}>-</Button>
-              <p>{count}</p>
-              <Button onClick={addCount}>+</Button>
-            </div>
+            <ItemCount stock={stock} />
             <Link to={`/product/${id}`}>
               <Button variant={"contained"} className='card-item-button'>
                 Detalle
