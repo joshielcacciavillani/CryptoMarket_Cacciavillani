@@ -49,3 +49,4 @@ const producto = {
 
 export default productos;
 export { producto };
+
