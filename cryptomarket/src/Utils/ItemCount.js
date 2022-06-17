@@ -2,18 +2,18 @@ import { useState } from "react";
 import { Button } from "@mui/material";
 
 function ItemCount({ stock, initial }) {
-  const [cantidad, setCantidad] = useState(1);
+  const [count, setCount] = useState(1);
   const [cartListItems, setcartListItems] = useState([]);
 
   function handleIncrease() {
-    if (cantidad < stock) {
-      setCantidad(cantidad + 1);
+    if (count < stock) {
+      setCount(count + 1);
     }
   }
 
   function handleDecrease() {
-    if (cantidad > initial) {
-      setCantidad(cantidad - 1);
+    if (count > 1) {
+      setCount(count - 1);
     }
   }
 
@@ -28,21 +28,17 @@ function ItemCount({ stock, initial }) {
   return (
     <div className='d-flex justify-content-center'>
       <div>
-        <button className='btn-sm btn-success' onClick={handleDecrease} disabled={cantidad === 0}>
+        <button className='btn-sm btn-success' onClick={handleDecrease} disabled={count === 0}>
           {" "}
           -{" "}
         </button>
-        <span className='mx-5'> {cantidad} </span>
-        <button
-          className='btn-sm btn-success'
-          onClick={handleIncrease}
-          disabled={cantidad === stock}
-        >
+        <span className='mx-5'> {count} </span>
+        <button className='btn-sm btn-success' onClick={handleIncrease} disabled={count === stock}>
           {" "}
           +{" "}
         </button>
         <div className='my-3 d-flex justify-content-center'>
-          <Button variant='primary' onClick={() => onAdd(cantidad)}>
+          <Button variant='primary' onClick={() => onAdd(count)}>
             Comprar
           </Button>
         </div>
