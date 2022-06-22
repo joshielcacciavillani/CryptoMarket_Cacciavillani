@@ -1,15 +1,12 @@
-import { useState } from "react";
+import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 
-const Modal = ({ handleClose, open, children }) => {
-  const [count, setCount] = useState(0);
-
+const Modal = ({ handleClose, open, children, title }) => {
   return (
     <Dialog onClose={handleClose} open={open}>
       <DialogContent>
-        <p>{count}</p>
-        <button onClick={() => setCount(count + 1)}>+</button>
+        <DialogTitle>{title}</DialogTitle>
         {children}
       </DialogContent>
     </Dialog>
