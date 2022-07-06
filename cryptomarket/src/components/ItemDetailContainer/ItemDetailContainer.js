@@ -24,11 +24,11 @@ const ItemDetailContainer = () => {
       setProduct(prod);
     });
     // console.log("productFilter: ", productFilter)
-    // if(productFilter === undefined){
-    //     navigate('/notFound')
-    // }else {
-    //     setProduct(productFilter)
-    // }
+    if (productFilter === undefined) {
+      navigate("/notFound");
+    } else {
+      setProduct(productFilter);
+    }
   }, [id]);
 
   const getProduct = async () => {

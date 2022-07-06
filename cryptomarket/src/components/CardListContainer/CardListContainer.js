@@ -32,7 +32,7 @@ const CardListContainer = ({ title }) => {
   }, [category]);
 
   const filterByCategory = (array) => {
-    return array.filter((item) => item.category == category);
+    return array.filter((item) => item.category === category);
   };
 
   return (

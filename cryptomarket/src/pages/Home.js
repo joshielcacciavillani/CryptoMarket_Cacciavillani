@@ -1,5 +1,5 @@
 import CardList from "../components/CardList/CardList";
-import productos from "../Utils/productsMock";
+// import productos from "../Utils/productsMock";
 import { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../Utils/firebaseConfig";

@@ -18,14 +18,14 @@ const NavBar = () => {
     setAnchorEl(null);
   };
 
-  // const categories = [
-  //   { name: "bitcoin", category: "Bitcoin" },
-  //   { name: "lockchainnetworks", category: "Blockchain networks" },
-  //   { name: "smartcontractplatform", category: "Smart Contract Platform" },
-  //   { name: "stablecoins", category: "Stablecoins" },
-  // ];
+  const categories = [
+    { name: "bitcoin", category: "Bitcoin" },
+    { name: "lockchainnetworks", category: "Blockchain networks" },
+    { name: "smartcontractplatform", category: "Smart Contract Platform" },
+    { name: "stablecoins", category: "Stablecoins" },
+  ];
 
-  const categories = ["Bitcoin", "Blockchain networks", "Smart Contract Platform", "Stablecoins"];
+  // const categories = ["Bitcoin", "Blockchain networks", "Smart Contract Platform", "Stablecoins"];
 
   return (
     <AppBar position='static' className='header-primary'>
@@ -72,7 +72,7 @@ const NavBar = () => {
               {categories.map((cat) => {
                 return (
                   <MenuItem onClick={handleClose}>
-                    <Link to={`/products/${cat}`}>{cat}</Link>
+                    <Link to={`/products/${cat.category}`}>{cat.name}</Link>
                   </MenuItem>
                 );
               })}
