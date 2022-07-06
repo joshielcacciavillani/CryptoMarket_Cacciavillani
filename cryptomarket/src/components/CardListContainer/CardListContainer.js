@@ -9,7 +9,7 @@ const CardListContainer = ({ title }) => {
     return new Promise((result, reject) => {
       setTimeout(() => {
         result(products);
-      }, 2000);
+      }, 1000);
     });
   };
 
@@ -37,7 +37,7 @@ const CardListContainer = ({ title }) => {
 
   return (
     <div>
-      {console.log("container: ", products)}
+      {/* {console.log("container: ", products)} */}
       <h1>{title}</h1>
       <CardList productos={products}></CardList>
     </div>

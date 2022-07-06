@@ -8,16 +8,12 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 
 const ItemDetail = ({ data, stock }) => {
-  // const [size, setSize] = useState("");
   const [cantidad, setCantidad] = useState(0);
   const [showButton, setShowButton] = useState(false);
 
-  const addProductToCart = () => {
-    console.log("datos del producto:", data);
-    console.log("Cantidad Comprada:", cantidad);
-  };
-  // const handleChange = (event) => {
-  //   setSize(event.target.value);
+  // const addProductToCart = () => {
+  //   console.log("datos del producto:", data);
+  //   console.log("Cantidad Comprada:", cantidad);
   // };
 
   return (
@@ -37,19 +33,23 @@ const ItemDetail = ({ data, stock }) => {
             </div>
             <p>{data.price}</p>
             <br />
+
             {!showButton ? (
               <ItemCount
+                setShowButton={setShowButton}
                 actualizarCantidad={setCantidad}
                 producto={data}
                 cantidad={cantidad}
                 stock={data.stock}
-                setShowButton={setShowButton}
               ></ItemCount>
             ) : (
-              <Button variant='outlined' onClick={addProductToCart}>
+              <Button variant='outlined'>
                 <Link to='/cart'>Terminar compra</Link>
               </Button>
             )}
+            <Button variant='outlined'>
+              <Link to='/cart'>Terminar compra</Link>
+            </Button>
           </div>
         </div>
       </Paper>

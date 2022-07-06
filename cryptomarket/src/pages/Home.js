@@ -1,5 +1,4 @@
 import CardList from "../components/CardList/CardList";
-// import productos from "../Utils/productsMock";
 import { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../Utils/firebaseConfig";
@@ -11,9 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     setProducts([]);
-    console.log();
     getProducts().then((productos) => {
-      // console.log("productos: ", productos)
       category ? filterFirebase() : setProducts(productos);
     });
   }, [category]);
@@ -24,10 +21,8 @@ const Home = () => {
     const productList = productSnapshot.docs.map((doc) => {
       let product = doc.data();
       product.id = doc.id;
-      console.log("product: ", product);
       return product;
     });
-    console.log("product: ", productList);
 
     return productList;
   };

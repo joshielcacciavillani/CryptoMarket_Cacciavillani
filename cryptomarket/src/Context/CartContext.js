@@ -1,42 +1,28 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { cartActions, useCartReducer } from "./CartDuck";
 
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const [cartListItems, setCartListItems] = useState(
-    JSON.parse(localStorage.getItem("products")) || []
-  );
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [productsList, setProductList] = useState([]);
+  const { state, dispatch } = useCartReducer();
+  const storagedProducts = localStorage.getItem("products") || [];
+  const value = { state, dispatch };
 
-  const addProductToCart = (product) => {
-    let isInCart = cartListItems.find((cartItem) => cartItem.id === product.id);
-    if (!isInCart) {
-      console.log("se agrego el producto:", product);
-      setTotalPrice(totalPrice + product.price);
-      localStorage.setItem("products", JSON.stringify([...cartListItems, product]));
-      return setCartListItems((cartListItems) => [...cartListItems, product]);
+  useEffect(() => {
+    if (storagedProducts?.length) {
+      setProductList(storagedProducts);
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const deleteProduct = (product) => {
-    // console.log("Producto a eliminar:", product)
-    setCartListItems(cartListItems.filter((cartProduct) => cartProduct.id !== product.id));
-  };
+  useEffect(() => {
+    if (productsList?.length) {
+      dispatch(cartActions.addAllProducts(productsList));
+    }
+  }, [productsList, dispatch]);
 
-  const cleanCartProducts = () => {
-    setTotalPrice(0);
-    setCartListItems([]);
-  };
-
-  const data = {
-    cartListItems,
-    addProductToCart,
-    totalPrice,
-    cleanCartProducts,
-    deleteProduct,
-  };
-
-  return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
 export default CartContext;

@@ -18,7 +18,7 @@ function ItemCount({ stock, initial }) {
   }
 
   const onAdd = (product) => {
-    console.log("se agrego el producto:", product);
+    // console.log("se agrego el producto:", product);
     const isInCart = cartListItems.find((item) => item.id === product.id);
     if (!isInCart) {
       setcartListItems((cartListItems) => [...cartListItems, product]);

@@ -17,15 +17,19 @@ const NavBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   const categories = [
-    { name: "bitcoin", category: "Bitcoin" },
-    { name: "lockchainnetworks", category: "Blockchain networks" },
-    { name: "smartcontractplatform", category: "Smart Contract Platform" },
-    { name: "stablecoins", category: "Stablecoins" },
+    { name: "bitcoin", category: "Bitcoin", key: "1" },
+    { name: "lockchainnetworks", category: "Blockchain networks", key: "2" },
+    { name: "smartcontractplatform", category: "Smart Contract Platform", key: "3" },
+    { name: "stablecoins", category: "Stablecoins", key: "4" },
   ];
-
-  // const categories = ["Bitcoin", "Blockchain networks", "Smart Contract Platform", "Stablecoins"];
+  const linkProduct = categories.map((cat) => {
+    return (
+      <MenuItem onClick={handleClose} key={cat.key}>
+        <Link to={`/products/${cat.category}`}>{cat.name}</Link>
+      </MenuItem>
+    );
+  });
 
   return (
     <AppBar position='static' className='header-primary'>
@@ -49,12 +53,8 @@ const NavBar = () => {
           <li>
             <Button
               id='basic-button'
-              // aria-controls={open ? "basic-menu" : undefined}
-              // aria-haspopup='true'
-              // aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
               disableRipple
-              // style={{ backgroundColor: "transparent" }}
               variant='text'
               className='navbar__btn'
             >
@@ -69,13 +69,7 @@ const NavBar = () => {
                 "aria-labelledby": "basic-button",
               }}
             >
-              {categories.map((cat) => {
-                return (
-                  <MenuItem onClick={handleClose}>
-                    <Link to={`/products/${cat.category}`}>{cat.name}</Link>
-                  </MenuItem>
-                );
-              })}
+              {linkProduct}
             </Menu>
           </li>
           <li>

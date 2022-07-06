@@ -15,7 +15,12 @@ import { addDoc, collection } from "firebase/firestore";
 import db from "../Utils/firebaseConfig";
 
 const Cart = () => {
-  const { cartListItems, totalPrice, cleanCartProducts } = useContext(CartContext);
+  try {
+    
+  } catch (error) {
+    
+  }
+  const { cartListItems, totalPrice, clearAllProducts } = useContext(CartContext);
   const [showModal, setShowModal] = useState(false);
   const [formValue, setFormValue] = useState({
     name: "",
@@ -54,9 +59,9 @@ const Cart = () => {
   const saveData = async (newOrder) => {
     const orderFirebase = collection(db, "ordenes");
     const orderDoc = await addDoc(orderFirebase, newOrder);
-    console.log("orden generada: ", orderDoc.id);
+    // console.log("orden generada: ", orderDoc.id);
     setSuccess(orderDoc.id);
-    cleanCartProducts();
+    clearAllProducts();
   };
 
   return (
