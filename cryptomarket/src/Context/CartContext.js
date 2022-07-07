@@ -10,11 +10,11 @@ const CartProvider = ({ children }) => {
   const value = { state, dispatch };
 
   useEffect(() => {
-    if (storagedProducts?.length) {
-      setProductList(storagedProducts);
+    if (state) {
+      console.log("state", state);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [state]);
 
   useEffect(() => {
     if (productsList?.length) {
@@ -25,5 +25,5 @@ const CartProvider = ({ children }) => {
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
-export default CartContext;
-export { CartProvider };
+export default CartProvider;
+// export { CartProvider };

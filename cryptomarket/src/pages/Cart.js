@@ -15,11 +15,6 @@ import { addDoc, collection } from "firebase/firestore";
 import db from "../Utils/firebaseConfig";
 
 const Cart = () => {
-  try {
-    
-  } catch (error) {
-    
-  }
   const { cartListItems, totalPrice, clearAllProducts } = useContext(CartContext);
   const [showModal, setShowModal] = useState(false);
   const [formValue, setFormValue] = useState({
